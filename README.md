@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Delivery 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an app with React that makes to display the products and can buy!
 
-## Available Scripts
+All the data is from an external api, but for any future problems it gets from a alternative json file. 
 
-In the project directory, you can run:
+This is structured in a simple way.
 
-### `npm start`
+We have pages:
+    - Contact
+    - HomePage
+    - MenuPage
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The only page that we will check here is the Menu! 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The structure is based on Redux. So we have 3 functionalities
+- Add
+- Remove
+- Clean
 
-### `npm test`
+## Development
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+It was coded first mobile and then displayed on Desktop. The components that we are using is:
 
-### `npm run build`
+- ProductModal
+- Basket
+- Header
+- CategorySection
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Context
+The files that we are using for an alternative way if the api won't response. Based on the language field on the api, it will make the texts in English or Portuguese. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- menuContext -> File for the menu data, alternative way if the api won't response
+- translationContext -> Dictionary and using as alternative way if the api won't response
+- storeContext -> File if needs to display something with Store information, it can be include on the future!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Logic 
+After the consumer clicks on Menu on the header, he will can search by the item name, filter on the type of the food, and search with filtered enable ( if the user wants to search only in the drinks for example, if clicks on drinks category and type the name it will search on the drinks category). 
 
-### `npm run eject`
+If the user clicks on the product it opens a modal and can select the quantity or the modifiers, and add to the cart. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+On mobile on the bottom will see a button that opens the Basket modal and there can add more or decrease the quantity and if clicks to checkout it will clean the items ( it will redirect to payment in the future )
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Test
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+On this project I created the ProductModal test, to run, just run on the terminal 
+```
+npm test
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Shared URL
 
-## Learn More
+https://delivery-qik.vercel.app/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
