@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addItem, toggleCart } from '../../redux/slices/cartSlice';
+import { addItem } from '../../redux/slices/cartSlice';
 import './index.css'
+import { useTranslation } from '../../context/translationContext'
 
 const ProductModal = ({ product, onClose, section, onAddToCart }) => {
   const dispatch = useDispatch();
   const [selectedModifiers, setSelectedModifiers] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(product.price);
-
+  const t = useTranslation()
 
   const sectionImages = {
     242403: "https://preodemo.gumlet.io/usr/venue/7602/section/646fbe4c64a6f.png", // Burgers
@@ -53,12 +54,12 @@ const ProductModal = ({ product, onClose, section, onAddToCart }) => {
         <button className="close-modal" onClick={onClose}>
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g filter="url(#filter0_d_10013_1188)">
-              <rect x="2" width="28" height="28" rx="14" fill="white" shape-rendering="crispEdges" />
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M21.7338 8.27531C21.3788 7.92036 20.8055 7.92036 20.4505 8.27531L16 12.7167L11.5495 8.26621C11.1945 7.91126 10.6212 7.91126 10.2662 8.26621C9.91126 8.62116 9.91126 9.19454 10.2662 9.54949L14.7167 14L10.2662 18.4505C9.91126 18.8055 9.91126 19.3788 10.2662 19.7338C10.6212 20.0887 11.1945 20.0887 11.5495 19.7338L16 15.2833L20.4505 19.7338C20.8055 20.0887 21.3788 20.0887 21.7338 19.7338C22.0887 19.3788 22.0887 18.8055 21.7338 18.4505L17.2833 14L21.7338 9.54949C22.0796 9.20364 22.0796 8.62116 21.7338 8.27531Z" fill="#4F372F" />
+              <rect x="2" width="28" height="28" rx="14" fill="white" shapeRendering="crispEdges" />
+              <path fillRule="evenodd" clipRule="evenodd" d="M21.7338 8.27531C21.3788 7.92036 20.8055 7.92036 20.4505 8.27531L16 12.7167L11.5495 8.26621C11.1945 7.91126 10.6212 7.91126 10.2662 8.26621C9.91126 8.62116 9.91126 9.19454 10.2662 9.54949L14.7167 14L10.2662 18.4505C9.91126 18.8055 9.91126 19.3788 10.2662 19.7338C10.6212 20.0887 11.1945 20.0887 11.5495 19.7338L16 15.2833L20.4505 19.7338C20.8055 20.0887 21.3788 20.0887 21.7338 19.7338C22.0887 19.3788 22.0887 18.8055 21.7338 18.4505L17.2833 14L21.7338 9.54949C22.0796 9.20364 22.0796 8.62116 21.7338 8.27531Z" fill="#4F372F" />
             </g>
             <defs>
-              <filter id="filter0_d_10013_1188" x="0" y="0" width="32" height="32" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <filter id="filter0_d_10013_1188" x="0" y="0" width="32" height="32" filterUnits="userSpaceOnUse">
+                <feFlood floodOpacity="0" result="BackgroundImageFix" />
                 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
                 <feOffset dy="2" />
                 <feGaussianBlur stdDeviation="1" />
@@ -115,6 +116,7 @@ const ProductModal = ({ product, onClose, section, onAddToCart }) => {
             <button
               onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}
               className="quantity-button"
+              aria-label="Decrease quantity"
               style={{
                 background: quantity > 1 ? '#4F372F' : '#DADADA',
               }}
@@ -125,6 +127,7 @@ const ProductModal = ({ product, onClose, section, onAddToCart }) => {
             </button>
             <span className="quantity-value">{quantity}</span>
             <button
+              aria-label="Increase quantity"
               onClick={() => setQuantity(quantity + 1)}
               className="quantity-button"
             >
@@ -134,7 +137,7 @@ const ProductModal = ({ product, onClose, section, onAddToCart }) => {
             </button>
           </div>
           <button className="add-to-cart-button" onClick={handleAddToCart}>
-            Add to Order • R${totalPrice.toFixed(2)}
+            {t.add_to_order} • R${totalPrice.toFixed(2)}
           </button>
         </div>
 

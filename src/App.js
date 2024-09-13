@@ -8,21 +8,23 @@ import MenuPage from './pages/MenuPage';
 // import ContactPage from './pages/ContactPage';
 // import LoginPage from './pages/LoginPage';
 import Header from './components/Header';
+import { TranslationProvider } from './context/translationContext';
 
 function App() {
   return (
     <Provider store={store}>
       <MenuProvider>
-
-        <Router>
-          <Header />
-          <Routes>
-            {/* <Route path="/" element={<HomePage />} /> */}
-            <Route path="/" element={<MenuPage />} />
-            {/* <Route path="/contact" element={<ContactPage />} />
+        <TranslationProvider>
+          <Router>
+            <Header />
+            <Routes>
+              {/* <Route path="/" element={<HomePage />} /> */}
+              <Route path="/" element={<MenuPage />} />
+              {/* <Route path="/contact" element={<ContactPage />} />
         <Route path="/login" element={<LoginPage />} /> */}
-          </Routes>
-        </Router>
+            </Routes>
+          </Router>
+        </TranslationProvider>
       </MenuProvider>
     </Provider>
   );

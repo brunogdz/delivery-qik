@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addItem, removeItem, clearCart } from '../../redux/slices/cartSlice';
 import './index.css';
+import { useTranslation } from '../../context/translationContext'
 
 const Basket = ({ cartItems, onAdd, onRemove, isDesktop, isOpen, toggleCart }) => {
+    const t = useTranslation()
     const dispatch = useDispatch();
     const [isMobile, setIsMobile] = useState(false);
 
@@ -68,11 +70,11 @@ const Basket = ({ cartItems, onAdd, onRemove, isDesktop, isOpen, toggleCart }) =
                                         />
                                     </svg>
                                 </button>
-                                <h2>Basket</h2>
+                                <h2>{t.basket}</h2>
                             </div>
                             <div className="basket-items-container">
                                 {cartItems.length === 0 ? (
-                                    <p style={{padding: "0 16px"}}>Your basket is empty</p>
+                                    <p style={{padding: "0 16px"}}>{t.empty_basket}</p>
                                 ) : (
                                     <>
                                         {cartItems.map((item) => (
@@ -145,7 +147,7 @@ const Basket = ({ cartItems, onAdd, onRemove, isDesktop, isOpen, toggleCart }) =
                                 )}
                             </div>
                             <div className="modal-footer-basket">
-                                <button className="checkout-button" onClick={handleCheckout}>Checkout now</button>
+                                <button className="checkout-button" onClick={handleCheckout}>{t.checkout_now}</button>
                             </div>
                         </div>
                     </div>
@@ -153,10 +155,10 @@ const Basket = ({ cartItems, onAdd, onRemove, isDesktop, isOpen, toggleCart }) =
             ) : (
                 <aside className="basket-sidebar">
                     <div className='header-basket'>
-                    <h2>Basket</h2>
+                    <h2>{t.basket}</h2>
                     </div>
                     {cartItems.length === 0 ? (
-                        <p style={{padding: "0 16px"}}>Your basket is empty</p>
+                        <p style={{padding: "0 16px"}}>{t.empty_basket}</p>
                     ) : (
                         <>
                             {cartItems.map((item) => (

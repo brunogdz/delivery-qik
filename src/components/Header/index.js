@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from '../../context/translationContext'
 import './index.css';
 
 const Header = () => {
@@ -7,6 +8,7 @@ const Header = () => {
     const [currentPage, setCurrentPage] = useState('');
     const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const location = useLocation();
+    const t = useTranslation()
 
 
     useEffect(() => {
@@ -96,13 +98,13 @@ const Header = () => {
                         {isMenuOpen && (
                             <ul className="menu-items-mobile">
                                 <li>
-                                    <button onClick={() => setCurrentPage('Menu')}>Menu</button>
+                                    <button onClick={() => setCurrentPage('Menu')}>{t.menu}</button>
                                 </li>
                                 <li>
-                                    <button onClick={() => setCurrentPage('Entrar')}>Entrar</button>
+                                    <button onClick={() => setCurrentPage('Entrar')}>{t.sign}</button>
                                 </li>
                                 <li>
-                                    <button onClick={() => setCurrentPage('Contato')}>Contato</button>
+                                    <button onClick={() => setCurrentPage('Contato')}>{t.contact}</button>
                                 </li>
                             </ul>
                         )}
@@ -110,13 +112,13 @@ const Header = () => {
                 ) : (
                     <ul className="menu-items">
                         <li>
-                            <button onClick={() => setCurrentPage('Menu')}>Menu</button>
+                            <button onClick={() => setCurrentPage('Menu')}>{t.menu}</button>
                         </li>
                         <li>
-                            <button onClick={() => setCurrentPage('Entrar')}>Entrar</button>
+                            <button onClick={() => setCurrentPage('Entrar')}>{t.sign}</button>
                         </li>
                         <li>
-                            <button onClick={() => setCurrentPage('Contato')}>Contato</button>
+                            <button onClick={() => setCurrentPage('Contato')}>{t.contact}</button>
                         </li>
                     </ul>
                 )}

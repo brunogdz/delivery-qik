@@ -7,8 +7,8 @@ const CategorySection = ({ section }) => {
   console.log("section", section)
   const [expanded, setExpanded] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [cartItems, setCartItems] = useState([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [setCartItems] = useState([]);
+  const [setIsCartOpen] = useState(false);
   const basket = useSelector((state) => state.cart.items);
 
   const handleOpenCart = () => {
@@ -17,7 +17,6 @@ const CategorySection = ({ section }) => {
 
   const getProductQuantity = (productId) => {
     const productInBasket = basket.find((item) => item.id === productId);
-    console.log(basket, "basket")
     return productInBasket ? productInBasket.quantity : 0;
   };
 
