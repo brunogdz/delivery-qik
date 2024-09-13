@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { MenuProvider } from './context/menuContext';
+import store from './redux/store';
+// import HomePage from './pages/HomePage';
+import MenuPage from './pages/MenuPage';
+// import ContactPage from './pages/ContactPage';
+// import LoginPage from './pages/LoginPage';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <MenuProvider>
+
+        <Router>
+          <Header />
+          <Routes>
+            {/* <Route path="/" element={<HomePage />} /> */}
+            <Route path="/" element={<MenuPage />} />
+            {/* <Route path="/contact" element={<ContactPage />} />
+        <Route path="/login" element={<LoginPage />} /> */}
+          </Routes>
+        </Router>
+      </MenuProvider>
+    </Provider>
   );
 }
 

@@ -1,0 +1,261 @@
+.basket-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.item-detail-amount {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content-top h2 {
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21.09px;
+    letter-spacing: 0.75px;
+    text-align: center;
+    color: #121212;
+}
+
+.modal-content-top {
+    border-bottom: 1px solid #DADADA;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    cursor: pointer;
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    max-width: 480px;
+    width: 100%;
+    /* padding: 20px; */
+    overflow: hidden;
+    z-index: 1001;
+    height: 100vh;
+    /* max-height: 720px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.close-modal {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.item-details p {
+    margin: 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #EEEEEE;
+    padding: 8px 16px;
+    background-color: #fff;
+}
+
+.item-details-name {
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.75px;
+    text-align: left;
+
+}
+
+.item-details .modifier-details {
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.75px;
+    text-align: left;
+    color: #5F5F5F;
+}
+
+.modal-footer-basket {
+    position: sticky;
+    bottom: 0;
+    background: #F8F9FA;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.basket-subtotal-total {
+    background-color: #F8F9FA;
+}
+
+.basket-item-price {
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18.75px;
+    letter-spacing: 0.5px;
+    text-align: right;
+    color: #121212;
+}
+
+.quantity-control-basket {
+    display: flex;
+    align-items: center;
+    width: 94px;
+    padding-top: 10px;
+}
+
+.quantity-button-basket {
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    background: transparent;
+}
+
+.quantity-value {
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.basket-subtotal-total .subtotal {
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18.75px;
+    text-align: left;
+}
+
+.basket-subtotal-total .total {
+    font-family: "Roboto";
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 28.13px;
+    text-align: left;
+
+}
+
+.basket-subtotal-total .total span {
+    font-family: "Roboto";
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28.13px;
+    text-align: right;
+    color: #121212;
+}
+
+.basket-subtotal-total .subtotal span {
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 18.75px;
+    letter-spacing: 0.5px;
+    text-align: right;
+
+}
+
+.subtotal,
+.total {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+    max-height: 60px;
+    align-items: center;
+}
+
+.divider {
+    height: 1px;
+    margin: 0 16px;
+    background-color: #DADADA;
+}
+
+.checkout-button {
+    background-color: #4F372F;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 24px;
+}
+
+.basket-items-container {
+    overflow-y: auto;
+    height: calc(100vh - 168px);
+    background-color: #F8F9FA;
+}
+
+@media (min-width: 768px) {
+    .basket-sidebar {
+        width: 100%;
+        box-shadow: 0px 2px 14px 0px #00000026;
+        max-width: 320px;
+        background-color: #FFFFFF;
+        height: fit-content;
+    }
+
+    .basket-sidebar h2 {
+        margin: 0;
+    }
+
+    .header-basket {
+        height: 64px;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        background-color: #F8F9FA;
+    }
+
+    .divider {
+        height: 1px;
+        margin: 0 16px;
+        background-color: #DADADA;
+    }
+
+    .subtotal,
+    .total {
+        background-color: #F8F9FA;
+    }
+
+    .total p,
+    .total span {
+        font-size: 24px;
+    }
+
+    .subtotal {
+        font-family: "Roboto";
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 18.75px;
+        text-align: left;
+
+    }
+
+
+}

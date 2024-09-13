@@ -1,0 +1,126 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #4a332c;
+  color: white;
+  height: 52px;
+  position: relative;
+}
+
+
+.menu-title {
+  font-size: 20px;
+  position: absolute;
+  left: 42%;
+  right: 50%;
+}
+
+
+.menu-toggle {
+  display: flex;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+}
+
+
+.menu-items {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-items button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  position: relative;
+  padding: 8px 0;
+}
+
+.menu-items button:hover,
+.menu-items button.active {
+  text-decoration: none;
+}
+
+.menu-items button.active::after,
+.menu-items button:hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: white;
+}
+
+
+.menu-items-mobile {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: -15px;
+  right: 0px;
+  background-color: white;
+  padding-top: 58px;
+  z-index: 100;
+  text-align: center;
+  width: 128px;
+  padding-left: 0;
+}
+
+.menu-items-mobile li {
+  margin: 10px 0;
+}
+
+.menu-items-mobile button {
+  background: none;
+  border: none;
+  color: #4a332c;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+@media (min-width: 768px) {
+  .navbar {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .menu-items {
+    gap: 50px;
+  }
+
+  .menu-items button.active::after,
+  .menu-items button:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: white;
+  }
+
+  .menu-items button {
+    width: 232px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .menu-title {
+    display: none;
+  }
+}
