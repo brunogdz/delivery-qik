@@ -37,7 +37,7 @@ const Basket = ({ cartItems, onAdd, onRemove, isDesktop, isOpen, toggleCart }) =
     };
 
     const handleAdd = (item) => {
-        dispatch(addItem(item));
+        dispatch(addItem({ ...item, quantity: 1 }));
     };
 
     const handleCheckout = () => {

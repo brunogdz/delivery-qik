@@ -7,8 +7,8 @@ const CategorySection = ({ section }) => {
   console.log("section", section)
   const [expanded, setExpanded] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [setCartItems] = useState([]);
-  const [setIsCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const basket = useSelector((state) => state.cart.items);
 
   const handleOpenCart = () => {

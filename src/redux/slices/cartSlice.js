@@ -30,11 +30,9 @@ const cartSlice = createSlice({
       );
 
       if (existingItem) {
-        // If the item quantity is greater than 1, decrease it
         if (existingItem.quantity > 1) {
           existingItem.quantity -= 1;
         } else {
-          // Otherwise, remove the item from the cart
           state.items = state.items.filter(
             (item) => item !== existingItem
           );
